@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light">
+<title>YouSafe</title>
+<meta name="description" content="YouSafe is safety-form software for small contractors: a phone app for crews and a desktop app for the office. Made by Carroll Safety Consulting Inc., Alberta, Canada.">
+<link rel="canonical" href="https://yousafe.ca/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzFGNEU3OSIvPjxwYXRoIGQ9Ik03NCAzMzhDODYgMzIwIDEwOCAzMDMgMTM0IDI5NUMxMzUgMjM4IDE1NyAxODAgMjEwIDE1OEMyNTEgMTQxIDMyNCAxNDcgMzYyIDE3OEMzOTcgMjA3IDQxNSAyNDcgNDE3IDI4NkM0MTkgMjk2IDQyMiAzMDYgNDI4IDMxMkM0MzcgMzIxIDQzNSAzMzMgNDIyIDMzNUM0MTEgMzM3IDM5OSAzMzggMzkyIDMzOUwzOTIgMzUzQzM5MiAzNjEgMzg2IDM2NiAzNzggMzY2TDM0NCAzNjZDMzM2IDM2NiAzMzAgMzYxIDMzMCAzNTNMMzMwIDM0MkMyNTcgMzQzIDE0NyAzNDEgMTA0IDMzOEM5MCAzMzcgODAgMzM4IDc0IDMzOFoiIGZpbGw9IiNGMkE5MDAiLz48cGF0aCBkPSJNMjI2IDI0MEwyNjQgMjc4TDMzOCAyMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzFGNEU3OSIgc3Ryb2tlLXdpZHRoPSIyOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+">
+<style>
+  /* YouSafe's colours and sizes: the same as the phone app's. */
+  :root {
+    color-scheme: light;
+    --paper: #FFFFFF;
+    --ink: #111827;
+    --muted: #6B7280;
+    --rule: #D1D5DB;
+    --navy: #1F4E79;
+    --yellow: #F2A900;
+    --tint: #EAF1F8;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { background: var(--paper); }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 1.125rem;
+    line-height: 1.55;
+  }
+
+  /* One column. The only place the side gutter is set. */
+  .page {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding-inline: 16px;
+    padding-block: 32px 40px;
+  }
+
+  p, h1, h2, address { margin: 0; }
+
+  /* The name, with the app's own icon. */
+  .masthead {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .mark { flex: none; display: block; width: 64px; height: 64px; }
+  .mark-ground { fill: var(--navy); }
+  .mark-hat { fill: var(--yellow); }
+  .mark-check {
+    fill: none;
+    stroke: var(--navy);
+    stroke-width: 28;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  h1 {
+    font-size: 2rem;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .slogan {
+    margin-top: 4px;
+    font-size: 0.875rem;
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+  /* On the narrowest phones the slogan breaks between its two sentences, never inside one. */
+  .slogan span { white-space: nowrap; }
+
+  main {
+    display: grid;
+    gap: 32px;
+    margin-top: 32px;
+  }
+
+  .intro { display: grid; gap: 24px; }
+  .lead {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    font-weight: 600;
+    text-wrap: balance;
+  }
+  .status {
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: var(--tint);
+  }
+
+  /* Lines and space group things. No boxes inside boxes. */
+  section, .maker {
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  section { display: grid; gap: 12px; }
+  h2 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  /* Contact: one forward action in yellow, the other plainer. Both thumb-sized, as in the app. */
+  address {
+    font-style: normal;
+    display: grid;
+    gap: 16px;
+  }
+  .contact { display: grid; gap: 8px; }
+  .contact-label { font-size: 1rem; font-weight: 600; }
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .button-primary {
+    background: var(--yellow);
+    color: var(--navy);
+    font-size: 1.25rem;
+  }
+  .button-plain {
+    background: var(--paper);
+    color: var(--navy);
+    border: 1px solid var(--navy);
+    font-size: 1.125rem;
+  }
+  .button:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .button-plain:hover { background: var(--tint); }
+  .button:active { opacity: 0.8; }
+  .button:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+
+  footer {
+    margin-top: 32px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  @media (min-width: 30rem) {
+    .button { justify-self: start; min-width: 18rem; }
+  }
+  @media (min-width: 40rem) {
+    .page { padding-inline: 24px; padding-block: 64px 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="masthead">
+    <svg class="mark" viewBox="0 0 512 512" width="64" height="64" aria-hidden="true" focusable="false">
+      <rect class="mark-ground" width="512" height="512" rx="112"/>
+      <path class="mark-hat" d="M74 338C86 320 108 303 134 295C135 238 157 180 210 158C251 141 324 147 362 178C397 207 415 247 417 286C419 296 422 306 428 312C437 321 435 333 422 335C411 337 399 338 392 339L392 353C392 361 386 366 378 366L344 366C336 366 330 361 330 353L330 342C257 343 147 341 104 338C90 337 80 338 74 338Z"/>
+      <path class="mark-check" d="M226 240L264 278L338 200"/>
+    </svg>
+    <div>
+      <h1>YouSafe</h1>
+      <p class="slogan"><span>Your Data.</span> <span>Your Safety.</span></p>
+    </div>
+  </header>
+
+  <main>
+    <div class="intro">
+      <p class="lead">Safety forms for small contractors. Your crews fill them in on a phone, and your office files them.</p>
+      <p class="status"><strong>Not available yet.</strong> Field testing begins in 2027.</p>
+    </div>
+
+    <section aria-labelledby="what-heading">
+      <h2 id="what-heading">What YouSafe is</h2>
+      <p>YouSafe is two apps. Crews use the phone app to fill in safety forms on site: field-level hazard assessments (FLHAs), vehicle and equipment inspections, incident and stop-work notifications, incident investigations and training records. The office uses the desktop app to set YouSafe up, collect the forms and file them.</p>
+      <p>The phone app works without signal. Forms wait on the phone until they can go.</p>
+    </section>
+
+    <section aria-labelledby="who-heading">
+      <h2 id="who-heading">Who it is for</h2>
+      <p>Small contractors: the crews who fill in safety forms on site, and the people in the office who file them.</p>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <address>
+        <div class="contact">
+          <p class="contact-label">Questions about YouSafe or privacy</p>
+          <a class="button button-primary" href="mailto:privacy@yousafe.ca">privacy@yousafe.ca</a>
+        </div>
+      </address>
+      <p>Our privacy policy is being reviewed and will be posted here.</p>
+    </section>
+
+    <p class="maker">YouSafe is made by Carroll Safety Consulting Inc., Alberta, Canada.</p>
+  </main>
+
+  <footer>
+    <p>© 2026 Carroll Safety Consulting Inc. This site sets no cookies and has no analytics or trackers.</p>
+  </footer>
+</div>
+</body>
+</html>
